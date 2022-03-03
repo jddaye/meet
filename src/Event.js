@@ -39,7 +39,7 @@ export class Event extends Component {
         onClick={this.handleClick}>{collapsed ? "Show Details" : "Hide-Details"}</button>
         
     </div> 
-    ) 
-    }
-    
+    )}
 }
+
+export default Event;
