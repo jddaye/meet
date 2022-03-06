@@ -23,6 +23,8 @@ class CitySearch extends Component {
             query: suggestion,
             showSuggestions: false,
         });
+
+        this.props.updateEvents(suggestion);
     }
 
     render() {
@@ -36,16 +38,14 @@ class CitySearch extends Component {
                     onFocus={() => { this.setState({showSuggestions: true}); }}
                 />
 
-                <ul className="suggestions"
-                    style = {this.state.showSuggestions ? {} : {display: 'none'}}
-                >
+                <ul className="suggestions" style={this.state.showSuggestions ? {}: {display: 'none'}}>
                     {this.state.suggestions.map((suggestion) => (
                         <li 
                             key={suggestion}
                             onClick={() => this.handleItemClicked(suggestion)}
                         >{suggestion}</li>
                     ))}
-                        <li key="all">
+                        <li>
                             <b>See all cities</b>
                         </li>
                 </ul>
