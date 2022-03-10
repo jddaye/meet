@@ -1,4 +1,4 @@
-import puppeteer from 'pupperteer';
+import puppeteer from 'puppeteer';
 
 describe('show/hide an event details', () => {
 
