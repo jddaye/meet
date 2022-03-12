@@ -20,42 +20,42 @@ defineFeature(feature, test => {
         });
 
         then('the event details should be collapsed', () => {
-            expect(AppWrapper.find('.event_more-details')).toHaveLength(0);
+            expect(AppWrapper.find('.event .details-view')).toHaveLength(0);
         });
     });
 
     test('When the user clicks on a collapsed event element, the element should expand', ({ given, when, then }) => {
         let AppWrapper;
-        given('a user has click to show the event details', () => {
+        given('a user has click to show the event details', async () => {
             AppWrapper = await mount(<App />);
         });
 
         when('the event details are collapsed', () => {
             AppWrapper.update();
-            expect(AppWrapper.find('.event_details-btn')).toHaveLength(2);
-            AppWrapper.find('.event_details-btn').at(0).simulate('click');
+            expect(AppWrapper.find('.event .details-view')).toHaveLength(0);
+            AppWrapper.find('.event .details-btn').at(0).simulate('click');
         });
 
         then('the event details should expand', () => {
-            expect(AppWrapper.find('.event_more-details')).toHaveLength(1);
+            expect(AppWrapper.find('.event .details-view')).toHaveLength(1);
         });
     });
 
     test('When the user clicks on an expanded event element, the element should collapse', ({ given, when, then }) => {
         let AppWrapper;
-        given('a user has clicked to hide the event details', () => {
+        given('a user has clicked to hide the event details', async () => {
             AppWrapper = await mount (<App />);
             AppWrapper.update();
-            AppWrapper.find('.event_details-btn').at(0).simulate('click');
+            AppWrapper.find('.event .details-btn').at(0).simulate('click');
         });
 
         when('the event details are expanded', () => {
-            AppWrapper.find('.event_details-btn').at(0).simulate('click');
-            expect(AppWrapper.find('.event_more-details')).toHaveLength(0);
+            AppWrapper.find('.event .details-btn').at(0).simulate('click');
+            expect(AppWrapper.find('.event .details-view')).toHaveLength(0);
         });
 
         then('the event details should collapse', () => {
-            expect(AppWrapper.find('.event_more-details')).toHaveLength(0);
+            expect(AppWrapper.find('.event .details-view')).toHaveLength(0);
         });
     });
 

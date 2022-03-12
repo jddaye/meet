@@ -17,6 +17,7 @@ class NumberOfEvents extends Component {
         return(
             <div className="NumberOfEvents">
                 <input 
+                    id="number-of-events_input"
                     type="number" 
                     className="numberOfEvents"
                     value={this.state.numberOfEvents} 

@@ -18,7 +18,7 @@ defineFeature(feature, test => {
         });
 
         then(/^(\d+) events should populate$/, (arg0) => {
-            expect(AppWrapper.find('.event')).toHaveLength(2);
+            expect(AppWrapper.find('.event')).toHaveLength(15);
         });
     });
 
