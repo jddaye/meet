@@ -42,7 +42,5 @@ describe('show/hide an event details', () => {
     expect(eventDetails).toBeNull();
   
   });
-    <button className={`details-btn ${collapsed ? "show" : "hide"}-details`} onClick={this.handleClick}>
-        {collapsed ? "Show Details" : "Hide-Details"}
-    </button>
+
 });
