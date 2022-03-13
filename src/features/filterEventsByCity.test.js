@@ -3,7 +3,7 @@ import React from 'react';
 import {mount, shallow} from 'enzyme';
 import App from '../App';
 import {mockData} from '../mock-data';
-import  extractLocations  from '../api';
+import  { extractLocations }  from '../api';
 import CitySearch from '../CitySearch';
 
 
@@ -33,16 +33,17 @@ defineFeature(feature, test => {
   test('User should see a list of suggestions when they search for a city', ({ given, when, then }) => {
     let CitySearchWrapper;
     given('the main page is open', () => {
+      const locations = extractLocations(mockData);
       CitySearchWrapper = shallow(<CitySearch updateEvents={() => {}} locations={locations} />);
 
     });
 
-    when('user starts typing in the city textbox', () => {
+    when('the user starts typing in the city textbox', () => {
       CitySearchWrapper.find('.city').simulate('change', { target: { value: 'Berlin' } });
 
     });
 
-    then('the user should receive a list of cities (suggestions) that match what they’ve typed', () => {
+    then('the user should receive a list of cities (suggestions) that match what they\'ve typed', () => {
       expect(CitySearchWrapper.find('.suggestions li')).toHaveLength(2);
 
 
