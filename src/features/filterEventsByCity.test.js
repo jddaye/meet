@@ -7,7 +7,7 @@ import  { extractLocations }  from '../api';
 import CitySearch from '../CitySearch';
 
 
-const feature = loadFeature('./src/features/filterEventsByCity.feature.txt');
+const feature = loadFeature('./src/features/filterEventsByCity.feature');
 
 defineFeature(feature, test => {
   

@@ -4,7 +4,7 @@ import { mount } from 'enzyme';
 
 import App from '../App';
 
-const feature = loadFeature('./src/features/showHideAnEventsDetails.feature.txt');
+const feature = loadFeature('./src/features/showHideAnEventsDetails.feature');
 
 defineFeature(feature, test => {
 
