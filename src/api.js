@@ -33,7 +33,7 @@ export const getAccessToken = async () => {
             const {authUrl} = results.data;
             return (window.location.href = authUrl);
         }
-        return code && getAccessToken(code);
+        return code && getToken(code);
     }
     return accessToken;
 };
@@ -50,7 +50,7 @@ const checkToken = async (accessToken) => {
 const getToken = async (code) => {
     const encodeCode = encodeURIComponent(code);
     const { access_token } = await fetch(
-        'https://3qclnxpwj3.execute-api.eu-central-1.amazonaws.com/dev/api/get-events' + '/' + encodeCode
+        'https://3qclnxpwj3.execute-api.eu-central-1.amazonaws.com/dev/api/token/${encodeCode}'
     )
         .then((res) => {
             return res.json();
