@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { PieChart, Pie, Cell, ResponsiveContainer } from 'recharts';
 
-export const EventGenre = ({ events }) => {
+const EventGenre = ({ events }) => {
     const [data, setData] = useState([]);
     const getData = () => {
       const genres = ['React', 'JavaScript', 'Node', 'jQuery', 'AngularJS'];
@@ -14,7 +14,7 @@ export const EventGenre = ({ events }) => {
 
     useEffect(() => { setData(() => getData()); }, [events]);
 
-    const cellColors = [
+    const colors = [
         '#8ECAE6',
         '#219EBC',
         '#023047',
@@ -31,7 +31,6 @@ export const EventGenre = ({ events }) => {
                     cy= {200}
                     labelLine= {false}
                     outerRadius= {80}
-                    fill= "8884d8"
                     dataKey= "value"
                     label= {({name, percent}) => `${name} ${(percent * 100).toFixed(0)}%`}
                 >
