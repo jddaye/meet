@@ -3,10 +3,11 @@ import './App.css';
 import EventList from './EventList';
 import CitySearch from './CitySearch';
 import NumberOfEvents from './NumberOfEvents';
-import { extractLocations, getEvents } from './api';
+import { extractLocations, getEvents, checkToken, getAccessToken } from './api';
 import './nprogress.css';
 import { ScatterChart, Scatter, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from 'recharts';
 import EventGenre from './EventGenre';
+import WelcomeScreen from './WelcomeScreen';
 
 class App extends Component {
     state= {
@@ -14,6 +15,7 @@ class App extends Component {
         locations: [],
         numberOfEvents: 32,
         currentLocation: "all",
+        showWelcomeScreen: undefined,
     };
 
     componentDidMount() {
@@ -64,6 +66,7 @@ class App extends Component {
       };
 
     render() {
+        if (this.state.showWelcomeScreen === undefined) return <div className="App" />
         return (
             <div className="App">
                 <h1>Meet App</h1>
@@ -94,7 +97,8 @@ class App extends Component {
                     </ResponsiveContainer>
                 </div>
                 <EventList events={this.state.events} numberOfEvents={this.state.numberOfEvents} />
-                
+
+                <WelcomeScreen showWelcomeScreen={this.state.showWelcomeScreen} getAccessToken={() => {getAccessToken() }} />
             </div>
         );
     };
